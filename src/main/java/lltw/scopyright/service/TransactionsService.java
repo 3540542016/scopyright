@@ -2,6 +2,7 @@ package lltw.scopyright.service;
 
 import lltw.scopyright.entity.Transactions;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author sakura
  * @since 2024-08-08
  */
+@Service
 public interface TransactionsService extends IService<Transactions> {
 
 }

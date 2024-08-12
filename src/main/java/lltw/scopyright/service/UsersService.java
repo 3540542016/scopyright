@@ -5,6 +5,7 @@ import lltw.scopyright.entity.Users;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lltw.scopyright.form.LoginForm;
 import lltw.scopyright.form.RegisterFrom;
+import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -16,6 +17,7 @@ import java.security.NoSuchAlgorithmException;
  * @author sakura
  * @since 2024-08-08
  */
+@Service
 public interface UsersService extends IService<Users> {
     ResultVO login(LoginForm loginForm) throws NoSuchAlgorithmException;
 

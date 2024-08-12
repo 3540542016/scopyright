@@ -71,7 +71,6 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
 
     @Override
     public ResultVO register(RegisterFrom registerFrom) throws NoSuchAlgorithmException {
-        ResultVO resultVO = new ResultVO();
         // 1. 验证用户名是否存在
         QueryWrapper<Users> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("email", registerFrom.getEmail());

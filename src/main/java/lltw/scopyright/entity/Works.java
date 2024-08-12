@@ -6,10 +6,11 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.fisco.bcos.sdk.abi.datatypes.Int;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author sakura
@@ -43,11 +44,6 @@ import lombok.EqualsAndHashCode;
       private Long creatorId;
 
       /**
-     * 作品哈希值
-     */
-      private String hash;
-
-      /**
      * 状态（pending, approved, rejected）
      */
       private String status;
@@ -63,4 +59,13 @@ import lombok.EqualsAndHashCode;
       private LocalDateTime updatedAt;
 
 
+    /**
+     * 版权编号
+     */
+    private String copyrightNumber;
+
+    /**
+     * 申请是否通过
+     */
+    private Boolean copyrightApplied;
 }
