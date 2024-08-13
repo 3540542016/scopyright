@@ -27,11 +27,9 @@ public class WorksController {
         this.worksService = worksService;
     }
 
-
     // 显示内容创作者所有作品
     @GetMapping("/creator/show")
     public ResultVO showWorks(@RequestParam Long creatorId) {
-
         return worksService.showAll(creatorId);
     }
     // 内容创作者上传作品接口
@@ -40,6 +38,7 @@ public class WorksController {
         return worksService.uploadWork(uploadForm);
     }
 
+    // 内容创作者提交申请版权接口
     @PostMapping("/creator/submitCopyright")
     public ResultVO submitCopyrightApplication(@RequestParam("workId") Long workId) {
         return worksService.submitCopyrightApplication(workId);
@@ -51,4 +50,3 @@ public class WorksController {
         return worksService.reviewCopyrightApplication(workId, approval);
     }
 }
-

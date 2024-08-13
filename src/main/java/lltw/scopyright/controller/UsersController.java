@@ -45,6 +45,5 @@ public class UsersController {
     public ResultVO register(@RequestBody RegisterFrom registerFrom) throws NoSuchAlgorithmException {
         return usersService.register(registerFrom);
     }
-
 }
 

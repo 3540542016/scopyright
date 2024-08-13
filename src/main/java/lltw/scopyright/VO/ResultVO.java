@@ -1,5 +1,6 @@
 package lltw.scopyright.VO;
 
+import lltw.scopyright.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,4 +39,5 @@ public class ResultVO {
     public static ResultVO error(int code , String msg){
         return new ResultVO(code,msg,null);
     }
+
 }

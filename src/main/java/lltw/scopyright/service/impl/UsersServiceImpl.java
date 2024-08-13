@@ -66,7 +66,11 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
         // claims.put("name",user.getUsername());
         // claims.put("role",user.getRole());
         // String jwt = genjwt.genJwt(claims);
-        return ResultVO.success(user.getRole());
+        Map<String, Object> data = new HashMap<>();
+        data.put("username",user.getUsername());
+        data.put("role",user.getRole());
+        data.put("id",user.getId());
+        return ResultVO.success(data);
     }
 
     @Override
