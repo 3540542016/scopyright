@@ -2,11 +2,14 @@ package lltw.scopyright.controller;
 
 
 import lltw.scopyright.VO.ResultVO;
+import lltw.scopyright.entity.Works;
 import lltw.scopyright.form.UploadForm;
 import lltw.scopyright.service.WorksService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -32,6 +35,14 @@ public class WorksController {
     public ResultVO showWorks(@RequestParam Long creatorId) {
         return worksService.showAll(creatorId);
     }
+
+    // 查询全部用户作品接口
+    @GetMapping("/creator/all")
+    public ResultVO getAllWorks() {
+        List<Works> worksList = worksService.list();
+        return ResultVO.success(worksList);
+    }
+
     // 内容创作者上传作品接口
     @PostMapping("/creator/upload")
     public ResultVO uploadWork(@RequestBody UploadForm uploadForm) {
