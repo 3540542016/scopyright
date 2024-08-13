@@ -3,6 +3,7 @@ package lltw.scopyright.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import lltw.scopyright.VO.ResultVO;
+import lltw.scopyright.VO.WorksDTO;
 import lltw.scopyright.entity.Users;
 import lltw.scopyright.entity.Works;
 import lltw.scopyright.form.UploadForm;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -133,4 +135,17 @@ public class WorksServiceImpl extends ServiceImpl<WorksMapper, Works> implements
         }
     }
 
+    @Override
+    public ResultVO getAllWorksWithCreatorName() {
+        // 查询所有作品
+        List<Works> worksList = worksMapper.selectList(null);
+
+        // 对每个作品查询对应的内容创作者
+        List<WorksDTO> worksWithCreatorName = worksList.stream().map(work -> {
+            Users creator = usersMapper.selectById(work.getCreatorId());
+            return new WorksDTO(work.getId(), work.getTitle(), work.getDescription(), work.getStatus(), creator.getUsername());
+        }).collect(Collectors.toList());
+
+        return ResultVO.success(worksWithCreatorName);
+    }
 }

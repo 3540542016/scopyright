@@ -39,8 +39,7 @@ public class WorksController {
     // 查询全部用户作品接口
     @GetMapping("/creator/all")
     public ResultVO getAllWorks() {
-        List<Works> worksList = worksService.list();
-        return ResultVO.success(worksList);
+        return worksService.getAllWorksWithCreatorName();
     }
 
     // 内容创作者上传作品接口

@@ -22,4 +22,6 @@ public interface WorksService extends IService<Works> {
     ResultVO submitCopyrightApplication(Long workId);
 
     ResultVO reviewCopyrightApplication(Long workId, boolean approval);
+
+    ResultVO getAllWorksWithCreatorName();
 }
