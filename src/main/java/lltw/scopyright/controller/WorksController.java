@@ -32,7 +32,7 @@ public class WorksController {
 
     // 显示内容创作者所有作品
     @GetMapping("/creator/show")
-    public ResultVO showWorks(@RequestParam Long creatorId) {
+    public ResultVO showWorks(@RequestParam("id") Long creatorId) {
         return worksService.showAll(creatorId);
     }
 
