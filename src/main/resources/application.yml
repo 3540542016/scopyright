@@ -9,3 +9,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:/mapper/*.xml
 
+blockchain:
+  auditorAddress: 0x7cffcbeeb6628add0fe8d3bc6a809040d562318f
+
+

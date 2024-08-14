@@ -49,14 +49,14 @@ public class WorksController {
     }
 
     // 内容创作者提交申请版权接口
-    @PostMapping("/creator/submitCopyright")
+    @GetMapping("/creator/submitCopyright")
     public ResultVO submitCopyrightApplication(@RequestParam("workId") Long workId) {
         return worksService.submitCopyrightApplication(workId);
     }
 
     // 审核机构审核版权接口
-    @PostMapping("/auditor/reviewCopyright")
-    public ResultVO reviewCopyrightApplication(@RequestParam("workId") Long workId, @RequestParam("approval") boolean approval) {
-        return worksService.reviewCopyrightApplication(workId, approval);
+    @GetMapping("/auditor/reviewCopyright")
+    public ResultVO reviewCopyrightApplication(@RequestParam("id") Long workId, @RequestParam("approval") boolean approval) {
+            return worksService.reviewCopyrightApplication(workId, approval);
     }
 }
